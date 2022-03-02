@@ -167,7 +167,7 @@ class _HomeState extends State<Home> {
 
                 DropdownButtonFormField<String>(
                   decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: Icon(Icons.school),
                   ),
                   hint: Text('Educational'),
                   items: <String>['Senior High School', 'Vocational Certificate', 'Vocational Diploma'].map((String value) {
@@ -182,7 +182,7 @@ class _HomeState extends State<Home> {
 
                 DropdownButtonFormField<String>(
                   decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: Icon(Icons.school),
                   ),
                   hint: Text('โครงการรับสมัคร'),
                   items: <String>['รับตรงสอบข้อเขียน', 'โควตาพื้นที่', 'Portfolio', 'เรียนดี', 'รับตรงใช้คะแนน GAT/PAT'].map((String value) {
@@ -198,7 +198,7 @@ class _HomeState extends State<Home> {
                 DropdownButtonFormField<String>(
                   isExpanded: true,
                   decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: Icon(Icons.one_k),
                   ),
                   hint: Text('อันดับ 1'),
                   items: <String>['ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีสารสนเทศ (IT) \n',
@@ -228,7 +228,7 @@ class _HomeState extends State<Home> {
                 DropdownButtonFormField<String>(
                   isExpanded: true,
                   decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: Icon(Icons.two_k),
                   ),
                   hint: Text('อันดับ 2'),
                   items: <String>['ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีสารสนเทศ (IT) \n',
@@ -258,7 +258,7 @@ class _HomeState extends State<Home> {
                 DropdownButtonFormField<String>(
                   isExpanded: true,
                   decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: Icon(Icons.three_k),
                   ),
                   hint: Text('อันดับ 3'),
                   items: <String>['ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีสารสนเทศ (IT) \n',
