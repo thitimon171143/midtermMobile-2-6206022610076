@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget{
 }
 
 class Home extends StatefulWidget{
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -30,6 +31,10 @@ class _HomeState extends State<Home> {
   TextEditingController _status = TextEditingController();
   TextEditingController _educational = TextEditingController();
   TextEditingController _gpa = TextEditingController();
+  TextEditingController _project = TextEditingController();
+  TextEditingController _num1 = TextEditingController();
+  TextEditingController _num2 = TextEditingController();
+  TextEditingController _num3 = TextEditingController();
 
 
   @override
@@ -42,6 +47,10 @@ class _HomeState extends State<Home> {
     _status.text = "";
     _educational.text = "";
     _gpa.text = "";
+    _project.text = "";
+    _num1.text = "";
+    _num2.text = "";
+    _num3.text = "";
     super.initState();
   }
   
@@ -78,7 +87,7 @@ class _HomeState extends State<Home> {
                   controller: _birth,
                   decoration: InputDecoration( 
                       labelText: "Date of birth",
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: Icon(Icons.date_range),
                       border: myinputborder(),
                       enabledBorder: myinputborder(),
                       focusedBorder: myfocusborder(),
@@ -91,7 +100,7 @@ class _HomeState extends State<Home> {
                   controller: _nationality,
                   decoration: InputDecoration( 
                       labelText: "Nationality",
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: Icon(Icons.flag),
                       border: myinputborder(),
                       enabledBorder: myinputborder(),
                       focusedBorder: myfocusborder(),
@@ -104,7 +113,7 @@ class _HomeState extends State<Home> {
                   controller: _religion,
                   decoration: InputDecoration( 
                       labelText: "Religion",
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: Icon(Icons.person),
                       border: myinputborder(),
                       enabledBorder: myinputborder(),
                       focusedBorder: myfocusborder(),
@@ -117,7 +126,7 @@ class _HomeState extends State<Home> {
                   controller: _gpa,
                   decoration: InputDecoration( 
                       labelText: "GPA",
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: Icon(Icons.book),
                       border: myinputborder(),
                       enabledBorder: myinputborder(),
                       focusedBorder: myfocusborder(),
@@ -187,11 +196,26 @@ class _HomeState extends State<Home> {
                 Container(height:10),
 
                 DropdownButtonFormField<String>(
+                  isExpanded: true,
                   decoration: InputDecoration(
                   prefixIcon: Icon(Icons.person),
                   ),
                   hint: Text('อันดับ 1'),
-                  items: <String>['Senior High School', 'Vocational Certificate', 'Vocational Diploma'].map((String value) {
+                  items: <String>['ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีสารสนเทศ (IT) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาวิศวกรรมอุตสาหการและการจัดการ (IEM) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีเครื่องกลและกระบวนการผลิต (MM) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาเทคโนโลยีสารสนเทศ (ITI) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INET) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาการจัดการอุตสาหกรรม (IMT) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาเทคโนโลยีเครื่องกลและกระบวนการผลิต (MMT) \n',
+
+                  'ภาควิชาวิศวกรรมเกษตรเพื่ออุตสาหกรรม \n หลักสูตร 4 ปีรับ ม.6 ปวช. \n สาขาวิชาวิศวกรรมเกษตรและอาหาร (AFE) \n',
+                  'ภาควิชาวิศวกรรมเกษตรเพื่ออุตสาหกรรม \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาวิศวกรรมเกษตรและอาหาร (AFET) \n',
+
+                  'ภาควิชาการออกแบบและบริหารงานก่อสร้าง \n หลักสูตร 4 ปีรับ ม.6 ปวช. \n สาขาวิชาคอมพิวเตอร์ช่วยออกแบบและบริหารงานก่อสร้าง (CA) \n',
+                  'ภาควิชาการออกแบบและบริหารงานก่อสร้าง \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาคอมพิวเตอร์ช่วยออกแบบและบริหารงานก่อสร้าง (CDM) \n',
+                  ].map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -202,11 +226,26 @@ class _HomeState extends State<Home> {
                 Container(height:10),
 
                 DropdownButtonFormField<String>(
+                  isExpanded: true,
                   decoration: InputDecoration(
                   prefixIcon: Icon(Icons.person),
                   ),
                   hint: Text('อันดับ 2'),
-                  items: <String>['Senior High School', 'Vocational Certificate', 'Vocational Diploma'].map((String value) {
+                  items: <String>['ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีสารสนเทศ (IT) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาวิศวกรรมอุตสาหการและการจัดการ (IEM) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีเครื่องกลและกระบวนการผลิต (MM) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาเทคโนโลยีสารสนเทศ (ITI) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INET) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาการจัดการอุตสาหกรรม (IMT) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาเทคโนโลยีเครื่องกลและกระบวนการผลิต (MMT) \n',
+
+                  'ภาควิชาวิศวกรรมเกษตรเพื่ออุตสาหกรรม \n หลักสูตร 4 ปีรับ ม.6 ปวช. \n สาขาวิชาวิศวกรรมเกษตรและอาหาร (AFE) \n',
+                  'ภาควิชาวิศวกรรมเกษตรเพื่ออุตสาหกรรม \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาวิศวกรรมเกษตรและอาหาร (AFET) \n',
+
+                  'ภาควิชาการออกแบบและบริหารงานก่อสร้าง \n หลักสูตร 4 ปีรับ ม.6 ปวช. \n สาขาวิชาคอมพิวเตอร์ช่วยออกแบบและบริหารงานก่อสร้าง (CA) \n',
+                  'ภาควิชาการออกแบบและบริหารงานก่อสร้าง \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาคอมพิวเตอร์ช่วยออกแบบและบริหารงานก่อสร้าง (CDM) \n',
+                  ].map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -217,11 +256,26 @@ class _HomeState extends State<Home> {
                 Container(height:10),
 
                 DropdownButtonFormField<String>(
+                  isExpanded: true,
                   decoration: InputDecoration(
                   prefixIcon: Icon(Icons.person),
                   ),
                   hint: Text('อันดับ 3'),
-                  items: <String>['Senior High School', 'Vocational Certificate', 'Vocational Diploma'].map((String value) {
+                  items: <String>['ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีสารสนเทศ (IT) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาวิศวกรรมอุตสาหการและการจัดการ (IEM) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร 4 ปีรับ ม.6 ปวช.\n สาขาวิชาเทคโนโลยีเครื่องกลและกระบวนการผลิต (MM) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาเทคโนโลยีสารสนเทศ (ITI) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INET) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาการจัดการอุตสาหกรรม (IMT) \n',
+                  'ภาควิชาเทคโนโลยีสารสนเทศ \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาเทคโนโลยีเครื่องกลและกระบวนการผลิต (MMT) \n',
+
+                  'ภาควิชาวิศวกรรมเกษตรเพื่ออุตสาหกรรม \n หลักสูตร 4 ปีรับ ม.6 ปวช. \n สาขาวิชาวิศวกรรมเกษตรและอาหาร (AFE) \n',
+                  'ภาควิชาวิศวกรรมเกษตรเพื่ออุตสาหกรรม \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาวิศวกรรมเกษตรและอาหาร (AFET) \n',
+
+                  'ภาควิชาการออกแบบและบริหารงานก่อสร้าง \n หลักสูตร 4 ปีรับ ม.6 ปวช. \n สาขาวิชาคอมพิวเตอร์ช่วยออกแบบและบริหารงานก่อสร้าง (CA) \n',
+                  'ภาควิชาการออกแบบและบริหารงานก่อสร้าง \n หลักสูตร ต่อเนื่อง รับ ปวส. \n สาขาวิชาคอมพิวเตอร์ช่วยออกแบบและบริหารงานก่อสร้าง (CDM) \n',
+                  ].map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -236,10 +290,18 @@ class _HomeState extends State<Home> {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => personal(
-                          username: _name.text, 
-                          email: _sex.text, 
-                          password: _birth.text, 
-                          cnfpassword: _nationality.text))
+                          name: _name.text, 
+                          sex: _sex.text, 
+                          birth: _birth.text, 
+                          nationality: _nationality.text,
+                          religion: _religion.text,
+                          status: _status.text,
+                          educational: _educational.text,
+                          gpa: _gpa.text,
+                          project: _project.text,
+                          num1: _num1.text,
+                          num2: _num2.text,
+                          num3: _num3.text,))
                     );
                   }, 
                     child: Text('Register'))
